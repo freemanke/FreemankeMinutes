@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
+using FreemankeMinutes.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,8 +31,13 @@ namespace FreemankeMinutes
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-
+            services.AddTransient<HttpClient>();
+            services.AddTransient<TestPlatformClient>();
+            services.AddHttpClient("TPAPI", client =>
+            {
+                client.BaseAddress = new Uri("http://tp.cmit.local/");
+                client.DefaultRequestHeaders.Add("User-Agent", "Freeman Ke User Agent");
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
