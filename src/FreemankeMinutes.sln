@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreemankeMinutes", "FreemankeMinutes\FreemankeMinutes.csproj", "{89EAB8CB-FEEF-4B93-A698-7201E8F4FE9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreemankeMinutes.Tests", "FreemankeMinutes.Tests\FreemankeMinutes.Tests.csproj", "{68367FC3-1A46-49F3-99A4-799C960493FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreemankeMinutes.Tests", "test\FreemankeMinutes.Tests\FreemankeMinutes.Tests.csproj", "{68367FC3-1A46-49F3-99A4-799C960493FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
