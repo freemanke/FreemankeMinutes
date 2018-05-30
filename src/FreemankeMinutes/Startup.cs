@@ -28,9 +28,10 @@ namespace FreemankeMinutes
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+                options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            services.AddSignalR();
             services.AddTransient<HttpClient>();
             services.AddTransient<TestPlatformClient>();
             services.AddHttpClient("TPAPI", client =>
@@ -55,7 +56,7 @@ namespace FreemankeMinutes
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            app.UseSignalR(routes => { routes.MapHub<ChatHub>("/chathub");});
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
